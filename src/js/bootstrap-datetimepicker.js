@@ -635,7 +635,7 @@ THE SOFTWARE.
             e.stopPropagation();
             e.preventDefault();
             picker.unset = false;
-            var target = $(e.target).closest('span, td, th'), month, year, step, day, oldDate = picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date);
+            var target = $(e.target).closest('span, td, th'), month, year, step, day, oldDate = (picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date));
             if (target.length === 1) {
                 if (!target.is('.disabled')) {
                     switch (target[0].nodeName.toLowerCase()) {
@@ -828,7 +828,7 @@ THE SOFTWARE.
         },
 
         doAction = function (e) {
-            var oldDate = picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date),
+            var oldDate = (picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date)),
                 action = $(e.currentTarget).data('action'),
                 rv = actions[action].apply(picker, arguments);
             stopEvent(e);
@@ -854,9 +854,7 @@ THE SOFTWARE.
 
         change = function (e) {
             moment.locale(picker.options.language);
-            var input = $(e.target), 
-                oldDate = picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date), 
-                newDate = picker.options.useUtc ? moment.utc(input.val(), picker.format, picker.options.useStrict) : moment(input.val(), picker.format, picker.options.useStrict);
+            var input = $(e.target), oldDate = (picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date)), newDate = (picker.options.useUtc ? moment.utc(input.val(), picker.format, picker.options.useStrict) : moment(input.val(), picker.format, picker.options.useStrict));
             if (newDate.isValid() && !isInDisableDates(newDate) && isInEnableDates(newDate)) {
                 update();
                 picker.setValue(newDate);
@@ -1329,7 +1327,7 @@ THE SOFTWARE.
         };
 
         picker.setDate = function (date) {
-            var oldDate = picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date);
+            var oldDate = (picker.options.useUtc ? moment.utc(picker.date) : moment(picker.date));
             if (!date) {
                 picker.setValue(null);
             } else {
