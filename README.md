@@ -1,6 +1,18 @@
 # Bootstrap 3 datetimepicker widget 
 ![GitHub version](https://badge.fury.io/gh/Eonasdan%2Fbootstrap-datetimepicker.png)&nbsp;&nbsp;&nbsp;![Travis](https://travis-ci.org/Eonasdan/bootstrap-datetimepicker.svg?branch=development)
 
+This fork adds an option to enable UTC mode:
+```javascript
+element.datetimepicker({
+    useUtc : true
+});
+```
+
+To install this version using bower:
+```
+bower install git://github.com/mpurbo/bootstrap-datetimepicker.git#master
+```
+
 ![DateTimePicker](http://i.imgur.com/nfnvh5g.png)
 
 ## [View the manual and demos](http://eonasdan.github.io/bootstrap-datetimepicker/)
